@@ -1,4 +1,5 @@
 #import mediapipe
+import torch
 import numpy as np
 import cv2
 from scipy.spatial import ConvexHull
@@ -27,7 +28,9 @@ NUM_LANDMARKS = 68
 #         return points.astype(self.result_dtype)
 
 class FaceAligmentExtractor:
-    def __init__(self, device='cuda:0'):
+    def __init__(self, device=None):
+        if device is None:
+            device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         self.fa = face_alignment.FaceAlignment(face_alignment.LandmarksType.TWO_D, device=device)
         self.prev_preds = np.zeros((68, 2), dtype='int16')
         
@@ -94,5 +97,5 @@ def process_video(video):
         convex = get_convex_points(points)
         mask = get_mask(frame, convex)
         video[i] *= mask[:, :, None]
-    
+
     return video, landmarks

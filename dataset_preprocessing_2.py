@@ -8,9 +8,9 @@ import rppglib.data_utils
 import rppglib.face_utils
 
 
-VIDEOS_PATH = '/gim/lv03/datasets/rppg/rppg_nir_data_train/video/'
-FACES_PATH = '/gim/lv03/datasets/rppg/rppg_nir_data_train/faces/'
-LANDMARKS_PATH = '/gim/lv03/datasets/rppg/rppg_nir_data_train/landmarks/'
+VIDEOS_PATH = 'C:/Users/jswat/School_Projects/mcd_rppg/videos/'
+FACES_PATH = 'C:/Users/jswat/School_Projects/mcd_rppg/faces/'
+LANDMARKS_PATH = 'C:/Users/jswat/School_Projects/mcd_rppg/landmarks/'
 
 errors_file = 'errors.csv'
 
